@@ -1,0 +1,31 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisa's Blog</title>
+    {% tailwind_css %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div id="nav" class="flex justify-between items-center p-5 bg-pink-600 text-white">
+            <a href="{% url 'home' %}" class="font-bold text-3xl">Lisa's Blog</a>
+            <div id="responsive-nav">
+                <ul class="flex justify-around items-center"">
+                    <li class="mr-6 font-semibold text-lg"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="mr-6 font-semibold text-lg"><a href="{% url 'home' %}">About</a></li>
+                    <li class="mr-6 font-semibold text-lg"><a href="{% url 'admin:index' %}">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    <!-- blog posts go here -->
+    {% endblock %}
+    <footer class="bg-pink-600 text-white p-5 text-center">
+        <p>Lisa Heinhold | &copy; 2024</p>
+    </footer>
+</body>
+</html>

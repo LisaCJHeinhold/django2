@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<header><h1 class="text-5xl text-center p-5 font-bold text-pink-600">Blog Posts</h1></header>
+<div id="container">
+    <div id="row" class="p-3">
+        <!-- blog posts go here -->
+        {% for post in posts %}
+        <div id="card" class=" flex m-5 p-5 shadow-lg max-w-7xl flex-col mx-auto">
+            <h2 class="text-2xl capitalize py-2">{{ post.title }}</h2>
+            <hr>
+            <p class="text-gray-400 capitalize">{{ post.author }} | {{ post.created_on }}</p>
+            <p>{{ post.content|slice:":200" }}</p>
+            <a href="{% url 'post_detail' post.slug %}" class="text-pink-600">Read More &rarr;</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
